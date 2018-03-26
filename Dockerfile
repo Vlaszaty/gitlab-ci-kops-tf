@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-# Script is a combination of code from Dockerfiles of other images. 
+# Script is a combination of code from Dockerfiles of other images.
 LABEL description="Docker image for Gitlab CI containing Terraform, KOPS, Kubectl and awscli" \
       maintainer="Vlaszaty <vlaszaty@gmail.com>"
 
@@ -36,9 +36,6 @@ RUN apk --no-cache add ca-certificates \
   && mv kubectl /usr/local/bin/kubectl \
   && chmod +x /usr/local/bin/kops /usr/local/bin/kubectl \
   && apk del --purge build-dependencies
-
-#ENTRYPOINT ["/usr/local/bin/kops"]
-#CMD ["--help"]
 
 # Install awscli using pip, as seen in https://github.com/anigeo/docker-awscli
 RUN 	mkdir -p /aws && \
