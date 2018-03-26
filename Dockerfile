@@ -7,7 +7,7 @@ LABEL description="Docker image for Gitlab CI containing Terraform, KOPS, Kubect
 
 
 # Install Terraform, as seen in https://github.com/djerfy/gitlab-ci-terraform
-ENV TERRAFORM_VERSION=0.11.4
+ENV TERRAFORM_VERSION=0.11.5
 ENV TERRAFORM_FILENAME=terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 ENV TERRAFORM_BASEURL=https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}
 
@@ -23,10 +23,10 @@ RUN echo "$(cat ${TERRAFORM_FILENAME}.sha256sum)  ${TERRAFORM_FILENAME}" | sha25
 # Install KOPS and Kubectl, as seen in https://github.com/AirHelp/docker-kops
 
 # Kops version
-ENV KOPS_VERSION=1.8.0
+ENV KOPS_VERSION=1.8.1
 # https://kubernetes.io/docs/tasks/kubectl/install/
 # latest stable kubectl: curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
-ENV KUBECTL_VERSION=v1.8.7
+ENV KUBECTL_VERSION=v1.9.6
 
 RUN apk --no-cache add ca-certificates \
   && apk --no-cache add --virtual build-dependencies curl \
